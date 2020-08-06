@@ -1,3 +1,6 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: argocd
 bases:
 - ../configs/
 patchesJson6902:
@@ -8,3 +11,5 @@ patchesJson6902:
       name: container-security-operator
       namespace: argocd
     path: cso.yaml
+resources:
+- project-cluster1.yaml

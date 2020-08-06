@@ -34,3 +34,93 @@ Once all the required pods are up and running, you can login to the ArgoCD insta
 oc get route argocd-server -n argocd -o jsonpath='{.spec.host}{"\n"}'
 ```
 
+# Add Clusters
+
+After the install is done you need to add your clusters. Before you can add your clusters, you need to login to the Hub/Management server using the `argocd` cli. You do this with the following command.
+
+```
+argocd login --sso --insecure $(oc get route argocd-server -n argocd -o jsonpath='{.spec.host}')
+```
+
+This will open your default browser and ask you to login using the OpenShift oAuth.
+
+## Your First Cluster
+
+Make sure you login to your cluster **FIRST**! Verify you're logged into your first cluster with the following:
+
+```shell
+$ oc cluster-info 
+Kubernetes master is running at https://api.cluster1.chx.osecloud.com:6443
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+$ oc whoami
+kube:admin
+```
+
+Now you can add your cluster to ArgoCD with the following
+
+```
+argocd cluster add default/api-cluster1-chx-osecloud-com:6443/kube:admin
+```
+
+> :heavy_exclamation_mark: **NOTE** You get the cluster name by running `argocd cluster add` (without any other options) after you've logged in.
+
+Verify the cluster has been added
+
+```shell
+$ argocd cluster list 
+SERVER                                      NAME                                                   VERSION  STATUS      MESSAGE
+https://api.cluster1.chx.osecloud.com:6443  default/api-cluster1-chx-osecloud-com:6443/kube:admin  1.18+    Successful  
+https://kubernetes.default.svc                                                                              Successful 
+```
+## Your Second Cluster
+
+Follow the same procedure to add your second cluster.
+
+Verify you're logged into the second cluster as an administrator
+
+```shell
+$ oc cluster-info 
+Kubernetes master is running at https://api.cluster2.chx.osecloud.com:6443
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+$ oc whoami
+kube:admin
+```
+
+Add your second cluster, once verified.
+
+```
+argocd cluster add  default/api-cluster2-chx-osecloud-com:6443/kube:admin
+```
+
+Verify that you now have two clusters
+
+> :rotating_light: Note that `https://kubernetes.default.svc` is the server that ArgoCD is running on. AKA the Hub/Management server
+
+```shell
+$ argocd cluster list
+SERVER                                      NAME                                                   VERSION  STATUS      MESSAGE
+https://api.cluster2.chx.osecloud.com:6443  default/api-cluster2-chx-osecloud-com:6443/kube:admin  1.18+    Successful  
+https://api.cluster1.chx.osecloud.com:6443  default/api-cluster1-chx-osecloud-com:6443/kube:admin  1.18+    Successful  
+https://kubernetes.default.svc                                                                              Successful
+```
+
+# Deploying cluster configurations
+
+To deploy the cluster configurations, make sure you're back on the management cluster as a cluster admin.
+
+```shell
+$ oc cluster-info 
+Kubernetes master is running at https://api.management.chx.osecloud.com:6443
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+$ oc whoami
+system:admin
+```
+
+## Deploy First cluster configurations.
+
+Use this repo to deploy `cluster1` configurations
+
+
