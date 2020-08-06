@@ -5,3 +5,5 @@ resources:
 - app-pricelist-db.yaml
 - app-pricelist-frontend.yaml
 - app-pricelist-namespace.yaml
+- app-bgd.yaml
+- project-cluster.yaml
