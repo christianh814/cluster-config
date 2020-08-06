@@ -128,3 +128,9 @@ oc apply -k https://github.com/christianh814/cluster-config/clusters/cluster1
 ```
 
 ## Deploy Second cluster configurations.
+
+In the same manner...deploy the second cluster config
+
+```
+oc apply -k https://github.com/christianh814/cluster-config/clusters/cluster2
+```
