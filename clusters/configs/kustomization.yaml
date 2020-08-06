@@ -1,2 +1,3 @@
 resources:
 - app-cso.yaml
+- app-htpass.yaml

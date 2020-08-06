@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: htpass-auth
+spec:
+  destination:
+    namespace: openshift-config
+    server: https://PATCHME
+  project: PATCHME
+  source:
+    path: manifests/htpass-auth/base
+    repoURL: https://github.com/christianh814/cluster-config
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+  sync:
+    comparedTo:
+      destination:
+        namespace: openshift-config
+        server: https://PATCHME
+      source:
+        path: manifests/htpass-auth/base
+        repoURL: https://github.com/christianh814/cluster-config
+        targetRevision: master

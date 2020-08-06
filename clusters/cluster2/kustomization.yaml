@@ -11,6 +11,13 @@ patchesJson6902:
       kind: Application
       name: container-security-operator
       namespace: argocd
-    path: cso.yaml
+    path: cluster-info.yaml
+  - target:
+      version: v1alpha1
+      group: argoproj.io
+      kind: Application
+      name: htpass-auth
+      namespace: argocd
+    path: cluster-info.yaml
 resources:
 - project-cluster2.yaml
