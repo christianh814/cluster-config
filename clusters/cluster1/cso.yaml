@@ -1,7 +1,4 @@
 - op: replace
-  path: /metadata/name
-  value: "cluster1-container-security-operator"
-- op: replace
   path: /spec/destination/server
   value: "https://api.cluster1.chx.osecloud.com:6443"
 - op: replace
