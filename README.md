@@ -123,4 +123,8 @@ system:admin
 
 Use this repo to deploy `cluster1` configurations
 
+```
+oc apply -k https://github.com/christianh814/cluster-config/clusters/cluster1
+```
 
+## Deploy Second cluster configurations.
