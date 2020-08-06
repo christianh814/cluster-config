@@ -19,5 +19,12 @@ patchesJson6902:
       name: htpass-auth
       namespace: argocd
     path: cluster-info.yaml
+  - target:
+      version: v1alpha1
+      group: argoproj.io
+      kind: Application
+      name: config-rbac
+      namespace: argocd
+    path: cluster-info.yaml
 resources:
 - project-cluster2.yaml
