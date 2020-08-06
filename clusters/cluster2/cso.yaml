@@ -1,0 +1,9 @@
+- op: replace
+  path: /spec/destination/server
+  value: http://someserver
+- op: replace
+  path: /spec/project
+  value: project-based-on-cluster-name
+- op: replace
+  path: /spec/sync/comparedTo/destination/server
+  value: project-based-on-cluster-name

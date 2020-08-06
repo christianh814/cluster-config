@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: container-security-operator
+  namespace: argocd
+spec:
+  destination:
+    namespace: openshift-operators
+    server: https://PATCHME
+  project: PATCHME
+  source:
+    path: manifests/container-security-operator/base
+    repoURL: https://github.com/christianh814/cluster-config
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+  sync:
+    comparedTo:
+      destination:
+        namespace: openshift-operators
+        server: https://PATCHME
+      source:
+        path: manifests/container-security-operator/base
+        repoURL: https://github.com/christianh814/cluster-config
+        targetRevision: master
