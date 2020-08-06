@@ -6,4 +6,4 @@
   value: "cluster2-chx-osecloud-com"
 - op: replace
   path: /spec/sync/comparedTo/destination/server
-  value: "cluster2-chx-osecloud-com"
+  value: "https://api.cluster2.chx.osecloud.com:6443"
