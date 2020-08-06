@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pricelist-namespace
+spec:
+  destination:
+    namespace: pricelist
+    server: https://PATCHME
+  project: PATCHME
+  source:
+    path: pricelist/namespace
+    repoURL: https://github.com/christianh814/gitops-examples
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  sync:
+    comparedTo:
+      destination:
+        namespace: pricelist
+        server: https://PATCHME
+      source:
+        path: pricelist/namespace
+        repoURL: https://github.com/christianh814/gitops-examples
+        targetRevision: master
