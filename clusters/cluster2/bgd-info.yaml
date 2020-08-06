@@ -1,0 +1,12 @@
+- op: replace
+  path: /spec/destination/server
+  value: "https://api.cluster2.chx.osecloud.com:6443"
+- op: replace
+  path: /spec/project
+  value: "cluster2-chx-osecloud-com"
+- op: replace
+  path: /spec/source/path
+  value: "bgdk/overlays/cluster2"
+- op: replace
+  path: /spec/sync/comparedTo/destination/server
+  value: "https://api.cluster2.chx.osecloud.com:6443"

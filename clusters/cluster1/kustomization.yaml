@@ -47,3 +47,10 @@ patchesJson6902:
       name: pricelist-namespace
       namespace: argocd
     path: cluster-info.yaml
+  - target:
+      version: v1alpha1
+      group: argoproj.io
+      kind: Application
+      name: bgd
+      namespace: argocd
+    path: bgd-info.yaml

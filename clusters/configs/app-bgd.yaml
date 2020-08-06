@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bgd
+spec:
+  destination:
+    namespace: bgd
+    server: https://PATCHME
+  project: PATCHME
+  source:
+    path: PATCHME
+    repoURL: https://github.com/christianh814/gitops-examples
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  sync:
+    comparedTo:
+      destination:
+        namespace: bgd
+        server: https://PATCHME
+      source:
+        path: pricelist/frontend
+        repoURL: https://github.com/christianh814/gitops-examples
+        targetRevision: master
