@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: efk
+spec:
+  destination:
+    namespace: openshift-logging
+    server: https://PATCHME
+  project: PATCHME
+  source:
+    path: manifests/efk/install
+    repoURL: https://github.com/christianh814/cluster-config
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  sync:
+    comparedTo:
+      destination:
+        namespace: openshift-logging
+        server: https://PATCHME
+      source:
+        path: manifests/efk/install
+        repoURL: https://github.com/christianh814/cluster-config
+        targetRevision: master

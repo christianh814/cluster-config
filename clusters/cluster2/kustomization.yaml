@@ -4,12 +4,20 @@ namespace: argocd
 namePrefix: "cluster2-"
 bases:
 - ../configs/
+- ./localonly/
 patchesJson6902:
   - target:
       version: v1alpha1
       group: argoproj.io
       kind: Application
       name: container-security-operator
+      namespace: argocd
+    path: cluster-info.yaml
+  - target:
+      version: v1alpha1
+      group: argoproj.io
+      kind: Application
+      name: efk
       namespace: argocd
     path: cluster-info.yaml
   - target:
@@ -54,3 +62,10 @@ patchesJson6902:
       name: bgd
       namespace: argocd
     path: bgd-info.yaml
+  - target:
+      version: v1alpha1
+      group: argoproj.io
+      kind: Application
+      name: config-rbac-marketing
+      namespace: argocd
+    path: cluster-info.yaml

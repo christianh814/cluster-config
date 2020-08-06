@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: config-rbac-marketing
+spec:
+  destination:
+    namespace: openshift-config
+    server: https://PATCHME
+  project: PATCHME
+  source:
+    path: manifests/rbac-marketing/base
+    repoURL: https://github.com/christianh814/cluster-config
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  sync:
+    comparedTo:
+      destination:
+        namespace: openshift-config
+        server: https://PATCHME
+      source:
+        path: manifests/rbac-marketing/base
+        repoURL: https://github.com/christianh814/cluster-config
+        targetRevision: master

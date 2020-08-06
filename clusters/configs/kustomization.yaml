@@ -7,3 +7,4 @@ resources:
 - app-pricelist-namespace.yaml
 - app-bgd.yaml
 - project-cluster.yaml
+- app-efk.yaml
