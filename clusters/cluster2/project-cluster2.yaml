@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: cluster2-chx-osecloud-com
+  name: chx-osecloud-com
 spec:
   clusterResourceWhitelist:
   - group: '*'
