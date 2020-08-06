@@ -26,5 +26,19 @@ patchesJson6902:
       name: config-rbac
       namespace: argocd
     path: cluster-info.yaml
+  - target:
+      version: v1alpha1
+      group: argoproj.io
+      kind: Application
+      name: pricelist-db
+      namespace: argocd
+    path: cluster-info.yaml
+  - target:
+      version: v1alpha1
+      group: argoproj.io
+      kind: Application
+      name: pricelist-frontend
+      namespace: argocd
+    path: cluster-info.yaml
 resources:
 - project-cluster1.yaml
