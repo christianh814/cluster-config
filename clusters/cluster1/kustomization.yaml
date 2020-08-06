@@ -1,0 +1,7 @@
+# Generic ArgoCD configs
+bases:
+- ../configs/
+
+# Kustomized configs specific to this cluster
+resources:
+- some.yaml
