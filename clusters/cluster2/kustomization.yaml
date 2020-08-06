@@ -9,7 +9,7 @@ patchesJson6902:
       version: v1alpha1
       group: argoproj.io
       kind: Application
-      name: cluster2-container-security-operator
+      name: container-security-operator
       namespace: argocd
     path: cso.yaml
 resources:
