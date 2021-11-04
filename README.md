@@ -1,3 +1,10 @@
+# ARCHIVED
+
+This repo is archived. Please seee [https://github.com/christianh814/openshift-cluster-config](https://github.com/christianh814/openshift-cluster-config) for the latest and greatest
+
+
+
+
 # OpenShift Cluster Config
 Setting up OpenShift clusters using Kustomize and a central ArgoCD instance
 
